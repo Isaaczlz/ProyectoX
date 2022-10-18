@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "CowBoy",
+    "slug": "CowBoy",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/cowboyicono4.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/Cowboy-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#3c231a"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/Cowboy-icon.png",
+        "backgroundColor": "#3c231a"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
