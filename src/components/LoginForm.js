@@ -1,39 +1,46 @@
-import React from "react";
-import { TextInput, Text, View, StyleSheet, FlexStyle } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, TextInput, View } from "react-native";
 
-export default function LoginForm() {
+const LoginForm = (props) => {
+  // const [mail, setMail] = useState('')
+  const { desing } = props;
   return (
     <View>
       <TextInput
-        style={{
-          fontSize: 15,
-          color: "#fff",
-          fontWeight: "bold",
-          opacity: 0.4,
-          width: 400,
-        }}
-        autoFocus
         placeholder="Email"
-        placeholderTextColor={"#cda469"}
-        textAlign="center"
-        cursorColor={"#cda469"}
+        // onChangeText={(e)=>console.log(e)}
+        {...desing}
       />
       <TextInput
-        style={{
-          fontSize: 15,
-          color: "#fff",
-          fontWeight: "bold",
-          opacity: 0.4,
-          width: 400,
-        }}
         secureTextEntry
         password
         placeholder="Contraseña"
-        placeholderTextColor={"#cda469"}
-        textAlign="center"
         textContentType="password"
-        cursorColor={"#cda469"}
+        {...desing}
       />
     </View>
   );
-}
+};
+
+const styles = StyleSheet.create({
+  textInput: {
+    fontSize: 15,
+    color: "#fff",
+    fontWeight: "bold",
+    opacity: 0.4,
+    width: 400,
+  },
+});
+
+const textDesing = {
+  style: styles.textInput,
+  placeholderTextColor: "#cda469",
+  textAlign: "center",
+  cursorColor: "#cda469",
+};
+
+LoginForm.defaultProps = {
+  desing: textDesing,
+};
+
+export default LoginForm;

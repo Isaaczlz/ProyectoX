@@ -1,17 +1,17 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, Text, View } from "react-native";
+import PropTypes from "prop-types";
 
-export default function FlatButton({ text, onPress, styleView, styleText }) {
+const Button = (props) => {
+  const { onPress, text, styleView, styleText } = props;
   return (
-    <TouchableOpacity
-      onPress={onPress ? onPress : () => console.log("Enviado")}
-    >
-      <View style={styleView ? styleView : styles.button}>
-        <Text style={styleText ? styleText : styles.buttonText}>{text}</Text>
+    <TouchableOpacity onPress={onPress}>
+      <View style={styleView}>
+        <Text style={styleText}>{text}</Text>
       </View>
     </TouchableOpacity>
   );
-}
+};
 
 const styles = StyleSheet.create({
   button: {
@@ -32,3 +32,20 @@ const styles = StyleSheet.create({
     opacity: 0.8,
   },
 });
+
+//defaultProps => Para las propiedades por default del componente
+Button.defaultProps = {
+  onPress: () => {
+    console.log("Enviar Carta");
+  },
+  text: "ENVIAR",
+  styleView: styles.button,
+  styleText: styles.buttonText,
+};
+
+// PropTypes => Para que la propiedad "text" sea requerido obligatoriamente
+Button.propTypes = {
+  text: PropTypes.string.isRequired,
+};
+
+export default Button;
